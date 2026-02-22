@@ -192,22 +192,28 @@ export default function DataUpload() {
               </div>
 
               {showPreview && uploadedFile?.data && (
-                 <div className="card-glow p-4 border-primary/10 overflow-x-auto animate-in zoom-in-95 duration-200">
-                    <table className="w-full text-xs text-left">
-                        <thead>
-                            <tr className="border-b border-border/50 uppercase text-muted-foreground">
-                                {REQUIRED_COLUMNS.map(col => <th key={col} className="p-2">{col.replace(/_/g, ' ')}</th>)}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {uploadedFile.data.slice(0, 10).map((row, i) => (
-                                <tr key={i} className="border-b border-border/20">
-                                    {REQUIRED_COLUMNS.map(col => <td key={col} className="p-2">{row[col]}</td>)}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                 </div>
+                <div className="card-glow p-4 border-primary/10 overflow-x-auto max-h-[500px] overflow-y-auto animate-in zoom-in-95 duration-200">
+                  <table className="w-full text-xs text-left">
+                    <thead className="sticky top-0 z-20 bg-background border-b border-border/50"> 
+                      {/* Added z-20 to stay on top, bg-background to hide scrolling text, and a border for definition */}
+                      <tr className="uppercase text-muted-foreground bg-background"> 
+                        {/* Setting the background on the TR as well ensures no gaps between cells */}
+                        {REQUIRED_COLUMNS.map(col => (
+                          <th key={col} className="p-3 text-left bg-background first:rounded-tl-lg last:rounded-tr-lg">
+                            {col.replace(/_/g, ' ')}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {uploadedFile.data.map((row, i) => ( // Removed slice to show all data
+                        <tr key={i} className="border-b border-border/20">
+                          {REQUIRED_COLUMNS.map(col => <td key={col} className="p-2">{row[col]}</td>)}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               )}
             </div>
 

@@ -214,43 +214,43 @@ export default function RakePlanDispatch() {
           </div>
 
           {/* KPI Summary */}
-          {kpis && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 animate-fade-in">
-              <div className="card-glow p-6 space-y-2 border-primary/30 stagger-item">
-                <p className="kpi-label">Rakes Formed</p>
-                <p className="kpi-value">{kpis.rakesFormed}</p>
-                <p className="text-xs text-emerald-400">Properly distributed</p>
-              </div>
-
-              <div className="card-glow p-6 space-y-2 border-secondary/30 stagger-item">
-                <p className="kpi-label">Total Orders</p>
-                <p className="kpi-value">{kpis.totalOrders}</p>
-                <p className="text-xs text-muted-foreground">All processed</p>
-              </div>
-
-              <div className="card-glow p-6 space-y-2 border-primary/30 stagger-item">
-                <p className="kpi-label">Avg Utilization</p>
-                <p className="kpi-value">{kpis.avgUtilization}%</p>
-                <p className="text-xs text-muted-foreground">Wagon fill rate</p>
-              </div>
-
-              <div className="card-glow p-6 space-y-2 border-emerald-500/30 stagger-item">
-                <p className="kpi-label">Est. Total Cost</p>
-                <p className="kpi-value">
-                  ₹{(kpis.totalCost / 1000).toFixed(1)}k
-                </p>
-                <p className="text-xs text-emerald-400">Optimized rate</p>
-              </div>
-
-              <div className="card-glow p-6 space-y-2 border-emerald-500/30 stagger-item">
-                <p className="kpi-label">Cost Savings</p>
-                <p className="kpi-value">{kpis.costSavingsPercent}%</p>
-                <p className="text-xs text-emerald-400">
-                  ₹{(kpis.costSavings / 1000).toFixed(1)}k saved
-                </p>
-              </div>
+        {kpis && (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 animate-fade-in">
+            <div className="card-glow p-6 space-y-2 border-primary/30 stagger-item min-w-0">
+              <p className="kpi-label whitespace-nowrap">Rakes Formed</p>
+              <p className="kpi-value text-2xl md:text-3xl lg:text-4xl truncate">{kpis.rakesFormed}</p>
+              <p className="text-xs text-emerald-400">Properly distributed</p>
             </div>
-          )}
+
+            <div className="card-glow p-6 space-y-2 border-secondary/30 stagger-item min-w-0">
+              <p className="kpi-label whitespace-nowrap">Total Orders</p>
+              <p className="kpi-value text-2xl md:text-3xl lg:text-4xl truncate">{kpis.totalOrders}</p>
+              <p className="text-xs text-muted-foreground">All processed</p>
+            </div>
+
+            <div className="card-glow p-6 space-y-2 border-primary/30 stagger-item min-w-0">
+              <p className="kpi-label whitespace-nowrap">Avg Utilization</p>
+              <p className="kpi-value text-2xl md:text-3xl lg:text-4xl truncate">{kpis.avgUtilization}%</p>
+              <p className="text-xs text-muted-foreground">Wagon fill rate</p>
+            </div>
+
+            <div className="card-glow p-6 space-y-2 border-emerald-500/30 stagger-item min-w-0">
+              <p className="kpi-label whitespace-nowrap">Est. Total Cost</p>
+              <p className="kpi-value text-2xl md:text-3xl lg:text-4xl truncate">
+                ₹{(kpis.totalCost / 1000).toFixed(1)}k
+              </p>
+              <p className="text-xs text-emerald-400">Optimized rate</p>
+            </div>
+
+            <div className="card-glow p-6 space-y-2 border-emerald-500/30 stagger-item min-w-0">
+              <p className="kpi-label whitespace-nowrap">Cost Savings</p>
+              <p className="kpi-value text-2xl md:text-3xl lg:text-4xl truncate">{kpis.costSavingsPercent}%</p>
+              <p className="text-xs text-emerald-400 whitespace-nowrap">
+                ₹{(kpis.costSavings / 1000).toFixed(1)}k saved
+              </p>
+            </div>
+          </div>
+        )}
 
           {/* Rake Selection Tabs */}
           {plan.length > 0 && (
