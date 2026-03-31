@@ -30,7 +30,6 @@ const generateAssistantResponse = (
 ): string => {
   const lowerQ = question.toLowerCase();
 
-  // Extract data from planData if available
   let rakeCount = 0;
   let totalOrders = 0;
   let totalQuantity = 0;
@@ -71,7 +70,6 @@ const generateAssistantResponse = (
     costSavingsPercent = ((costSavings / baselineCost) * 100).toFixed(1);
   }
 
-  // Answer specific questions about the plan
   if (lowerQ.includes("order") && lowerQ.includes("why")) {
     const orderMatch = question.match(/ORD-\d+|order\s+(\w+)/i);
     if (orderMatch && planData && Array.isArray(planData)) {

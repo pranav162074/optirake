@@ -28,7 +28,7 @@ export function Navigation() {
     { path: "/rail-road", label: "Rail vs Road", icon: TrendingUp },
     { path: "/reports", label: "Reports", icon: FileText },
     { path: "/about", label: "About", icon: HelpCircle },
-  ];
+  ]; 
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
